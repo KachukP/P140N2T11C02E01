@@ -1,21 +1,22 @@
-// assert { type: "json" } ya no va
-// https://stackoverflow.com/questions/70106880/err-import-assertion-type-missing-for-import-of-json-file
-import productsList from "./products.json" with { type: "json" };
+import ProductsList from "./products.json" with { type: "json" };
 
-export function productsListComponent() {
-  const section = document.createElement("section");
-  section.style.border = "solid 1px #ccc";
-  section.style.padding = "10px";
+export function GetProductsSortedByPrice(){
+  const Sorted = [...ProductsList];
+  Sorted.sort((a, b) => a.price - b.price);
+  return Sorted;
+};
 
-  const list = document.createElement("ul");
-
-  productsList.forEach((product) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${product.title} - $${product.price}`;
-    list.appendChild(listItem);
+export function ProductsListComponent(){
+  const Section = document.createElement("S");
+  Section.style.border = "solid 1px #ccc";
+  Section.style.padding = "10px";
+  const List = document.createElement("ul");
+  const SortedProducts = GetProductsSortedByPrice();
+  SortedProducts.forEach((Product) => {
+    const ListItem = document.createElement("li");
+    ListItem.textContent = `${Product.title} - $${Product.price}`;
+    List.appendChild(ListItem);
   });
-
-  section.appendChild(list);
-
-  return section;
-}
+  Section.appendChild(List);
+  return Section;
+};
