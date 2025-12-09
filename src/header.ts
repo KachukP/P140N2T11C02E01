@@ -4,4 +4,4 @@ export function HeaderComponent() {
   Header.style.border = "solid 3px black";
   Header.style.padding = "12px";
   return Header;
-}
+};

@@ -2,10 +2,9 @@
   "name": "ts-es-modules-web",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "http-server & tsc -w",
+    "dev": "http-server && tsc -w",
     "start": "http-server",
     "deploy": "gh-pages -d dist"
   },
